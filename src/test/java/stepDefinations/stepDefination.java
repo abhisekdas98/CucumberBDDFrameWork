@@ -16,40 +16,25 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.junit.Assert;
+import resources.TestDataBuild;
+import resources.Utils;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class stepDefination {
+public class stepDefination extends Utils {
     RequestSpecification res;
     ResponseSpecification respspec;
     Response response;
+    TestDataBuild data=new TestDataBuild();
     @Given("Add Place Payload")
-    public void add_place_payload() {
+    public void add_place_payload() throws IOException {
         // Write code here that turns the phrase above into concrete actions
-        baseURI="https://rahulshettyacademy.com";
-        Place p=new Place();
-        Location location=new Location();
-        List<String> ll=new LinkedList<>();
-        ll.add("shoe park");
-        ll.add("shop");
-        location.setLat(-21.233);
-        location.setLng(23.44);
-        p.setAccuracy(54);
-        p.setAddress("VIP prestige Appartment VIP Road puri");
-        p.setLanguage("Odia");
-        p.setLocation(location);
-        p.setName("Abhisek Home");
-        p.setPhone_number("+(91) 8328823423");
-        p.setWebsite("www.abhisekdas98.com");
-        p.setTypes(ll);
-        RequestSpecification rq=new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
-                .addQueryParam("key","qaclick123")
-                .setContentType(ContentType.JSON).build();
-
-         res=given().spec(rq).body(p);
+         res=given().spec(requestSpecification()).body(data.AddPlacePayLoad());
          respspec=new ResponseSpecBuilder().expectStatusCode(200)
                 .expectContentType(ContentType.JSON).build();
 
