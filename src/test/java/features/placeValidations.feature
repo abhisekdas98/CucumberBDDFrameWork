@@ -4,5 +4,5 @@ Feature: Validating Place API's
     Given Add Place Payload
     When User Calls "AddPlaceAPI" with Post HTTP Request
     Then the API call got Success with status code 200
-    And status in response body is "OK"
-    And  "Scope" in Response Body is "APP"
+    And "status" in response body is "OK"
+    And  "scope" in response body is "APP"

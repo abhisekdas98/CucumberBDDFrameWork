@@ -1,5 +1,7 @@
 package POJO;
 
+import java.util.List;
+
 public class Place {
     private Location location;
     private int accuracy;
