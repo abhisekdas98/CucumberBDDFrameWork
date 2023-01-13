@@ -8,7 +8,7 @@ import java.util.List;
 
 public class TestDataBuild {
 
-    public Place AddPlacePayLoad()
+    public Place AddPlacePayLoad(String name,String language,String address)
     {
         Place p=new Place();
         Location location=new Location();
@@ -18,10 +18,10 @@ public class TestDataBuild {
         location.setLat(-21.233);
         location.setLng(23.44);
         p.setAccuracy(54);
-        p.setAddress("VIP prestige Appartment VIP Road puri");
-        p.setLanguage("Odia");
+        p.setAddress(address);
+        p.setLanguage(language);
         p.setLocation(location);
-        p.setName("Abhisek Home");
+        p.setName(name);
         p.setPhone_number("+(91) 8328823423");
         p.setWebsite("www.abhisekdas98.com");
         p.setTypes(ll);
